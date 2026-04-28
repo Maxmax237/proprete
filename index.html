@@ -267,6 +267,7 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin-top: 40px;
+            margin-bottom: 40px;
         }
 
         .feature {
@@ -282,53 +283,61 @@
             margin-bottom: 15px;
         }
 
-        /* Section Contact */
+        /* Section Contact - BOUTONS CLIQUABLES */
         .contact-section {
             background: white;
             border-radius: 20px;
-            padding: 30px;
-            margin-top: 40px;
+            padding: 40px 30px;
+            margin-top: 20px;
             text-align: center;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
 
         .contact-section h3 {
             color: #333;
-            margin-bottom: 20px;
-            font-size: 24px;
+            margin-bottom: 30px;
+            font-size: 28px;
         }
 
-        .contact-links {
+        .contact-buttons {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
-        .contact-item {
-            display: flex;
+        .contact-btn {
+            display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 12px 25px;
-            background: #f5f7fa;
+            gap: 12px;
+            padding: 14px 28px;
+            border: none;
             border-radius: 50px;
-            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
             transition: all 0.3s;
+            text-decoration: none;
+            color: white;
         }
 
-        .contact-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .contact-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
-        .contact-item.whatsapp { background: #25D366; color: white; }
-        .contact-item.telegram { background: #0088cc; color: white; }
-        .contact-item.facebook { background: #1877f2; color: white; }
-        .contact-item.email { background: #ea4335; color: white; }
-        .contact-item.linkedin { background: #0077b5; color: white; }
+        .contact-btn-whatsapp { background: #25D366; }
+        .contact-btn-telegram { background: #0088cc; }
+        .contact-btn-facebook { background: #1877f2; }
+        .contact-btn-email { background: #ea4335; }
+        .contact-btn-linkedin { background: #0077b5; }
 
         .contact-icon {
             font-size: 24px;
+        }
+
+        .contact-text {
+            font-size: 16px;
         }
 
         footer {
@@ -339,12 +348,24 @@
             border-top: 1px solid #e0e0e0;
         }
 
+        .admin-info-hidden {
+            background: #fff3cd;
+            border: 1px solid #ffecb5;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+            color: #856404;
+            font-size: 14px;
+        }
+
         @media (max-width: 768px) {
             .container { padding: 15px; }
             .hero h1 { font-size: 32px; }
             .main-nav { flex-direction: column; text-align: center; }
-            .contact-links { gap: 15px; }
-            .contact-item { padding: 8px 18px; font-size: 14px; }
+            .contact-buttons { gap: 12px; }
+            .contact-btn { padding: 10px 20px; font-size: 14px; }
+            .contact-icon { font-size: 20px; }
         }
     </style>
 </head>
@@ -396,30 +417,35 @@
                 </div>
             </div>
 
-            <!-- SECTION CONTACT AVEC TES INFORMATIONS -->
+            <!-- SECTION CONTACT - BOUTONS CLIQUABLES -->
             <div class="contact-section">
                 <h3>📞 Contactez-nous</h3>
-                <div class="contact-links">
-                    <a href="https://wa.me/237692030989" target="_blank" class="contact-item whatsapp">
+                <div class="contact-buttons">
+                    <a href="https://wa.me/237692030989" target="_blank" class="contact-btn contact-btn-whatsapp">
                         <span class="contact-icon">📱</span>
-                        <span>WhatsApp: +237 692030989</span>
+                        <span class="contact-text">WhatsApp: +237 692030989</span>
                     </a>
-                    <a href="https://t.me/+237677309639" target="_blank" class="contact-item telegram">
+                    <a href="https://t.me/+237677309639" target="_blank" class="contact-btn contact-btn-telegram">
                         <span class="contact-icon">✈️</span>
-                        <span>Télégram: +237 677309639</span>
+                        <span class="contact-text">Télégram: @DavesStrange</span>
                     </a>
-                    <a href="https://facebook.com/daves.strange" target="_blank" class="contact-item facebook">
+                    <a href="https://facebook.com/daves.strange" target="_blank" class="contact-btn contact-btn-facebook">
                         <span class="contact-icon">📘</span>
-                        <span>Facebook: Daves Strange</span>
+                        <span class="contact-text">Facebook: Daves Strange</span>
                     </a>
-                    <a href="mailto:lefouestla@gmail.com" class="contact-item email">
+                    <a href="mailto:lefouestla@gmail.com" class="contact-btn contact-btn-email">
                         <span class="contact-icon">📧</span>
-                        <span>Email: lefouestla@gmail.com</span>
+                        <span class="contact-text">Email: lefouestla@gmail.com</span>
                     </a>
-                    <a href="https://linkedin.com/in/lefouestla" target="_blank" class="contact-item linkedin">
+                    <a href="https://linkedin.com/in/lefouestla" target="_blank" class="contact-btn contact-btn-linkedin">
                         <span class="contact-icon">🔗</span>
-                        <span>LinkedIn: lefouestla</span>
+                        <span class="contact-text">LinkedIn: lefouestla</span>
                     </a>
+                </div>
+                <!-- Message pour les admins (sans donner le mot de passe) -->
+                <div class="admin-info-hidden">
+                    🔐 <strong>Information importante :</strong> Seul l'administrateur a accès au tableau de bord. 
+                    Pour toute question concernant l'administration, contactez-nous via les boutons ci-dessus.
                 </div>
             </div>
         </div>
@@ -433,9 +459,11 @@
                     <input type="password" id="adminPassword" placeholder="Mot de passe" required>
                     <button type="submit">Se connecter</button>
                 </form>
-                <div id="adminLoginMsg" style="text-align: center; margin-top: 15px; color: red;"></div>
-                <div style="text-align: center; margin-top: 20px; color: #666; font-size: 13px;">
-                    Compte par défaut: <strong>admin@menagepro.com</strong> / <strong>admin123</strong>
+                <div id="adminLoginMsg" style="text-align: center; margin-top: 15px;"></div>
+                <div class="admin-info-hidden">
+                    🔐 <strong>Accès réservé</strong><br>
+                    Seul l'administrateur dispose des identifiants de connexion.<br>
+                    Si vous êtes administrateur et avez perdu vos identifiants, contactez le support.
                 </div>
             </div>
         </div>
@@ -532,7 +560,7 @@
 
         // Initialiser les données par défaut
         function initData() {
-            // Admins par défaut
+            // Admins par défaut (seul l'admin connaît ces identifiants)
             let admins = localStorage.getItem('menagepro_admins');
             if (!admins) {
                 const defaultAdmins = [
@@ -741,10 +769,11 @@
             
             if (loginAdmin(email, password)) {
                 msg.style.color = 'green';
-                msg.textContent = 'Connexion réussie !';
+                msg.innerHTML = '✅ Connexion réussie ! Redirection...';
+                setTimeout(() => {}, 500);
             } else {
                 msg.style.color = 'red';
-                msg.textContent = 'Email ou mot de passe incorrect';
+                msg.innerHTML = '❌ Email ou mot de passe incorrect. Seul l\'administrateur a accès.';
             }
         });
         
