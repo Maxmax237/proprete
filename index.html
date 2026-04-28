@@ -282,10 +282,69 @@
             margin-bottom: 15px;
         }
 
+        /* Section Contact */
+        .contact-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 40px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .contact-section h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: #f5f7fa;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-item.whatsapp { background: #25D366; color: white; }
+        .contact-item.telegram { background: #0088cc; color: white; }
+        .contact-item.facebook { background: #1877f2; color: white; }
+        .contact-item.email { background: #ea4335; color: white; }
+        .contact-item.linkedin { background: #0077b5; color: white; }
+
+        .contact-icon {
+            font-size: 24px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            margin-top: 40px;
+            border-top: 1px solid #e0e0e0;
+        }
+
         @media (max-width: 768px) {
             .container { padding: 15px; }
             .hero h1 { font-size: 32px; }
             .main-nav { flex-direction: column; text-align: center; }
+            .contact-links { gap: 15px; }
+            .contact-item { padding: 8px 18px; font-size: 14px; }
         }
     </style>
 </head>
@@ -334,6 +393,33 @@
                     <div class="icon">📍</div>
                     <h3>Douala & Yaoundé</h3>
                     <p>Intervention rapide</p>
+                </div>
+            </div>
+
+            <!-- SECTION CONTACT AVEC TES INFORMATIONS -->
+            <div class="contact-section">
+                <h3>📞 Contactez-nous</h3>
+                <div class="contact-links">
+                    <a href="https://wa.me/237692030989" target="_blank" class="contact-item whatsapp">
+                        <span class="contact-icon">📱</span>
+                        <span>WhatsApp: +237 692030989</span>
+                    </a>
+                    <a href="https://t.me/+237677309639" target="_blank" class="contact-item telegram">
+                        <span class="contact-icon">✈️</span>
+                        <span>Télégram: +237 677309639</span>
+                    </a>
+                    <a href="https://facebook.com/daves.strange" target="_blank" class="contact-item facebook">
+                        <span class="contact-icon">📘</span>
+                        <span>Facebook: Daves Strange</span>
+                    </a>
+                    <a href="mailto:lefouestla@gmail.com" class="contact-item email">
+                        <span class="contact-icon">📧</span>
+                        <span>Email: lefouestla@gmail.com</span>
+                    </a>
+                    <a href="https://linkedin.com/in/lefouestla" target="_blank" class="contact-item linkedin">
+                        <span class="contact-icon">🔗</span>
+                        <span>LinkedIn: lefouestla</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -434,6 +520,11 @@
         </div>
     </div>
 
+    <footer>
+        <p>© 2024 MenagePro Cameroun | Service de mise en relation professionnelle</p>
+        <p>📧 lefouestla@gmail.com | 📱 WhatsApp: +237 692030989 | 📘 Facebook: Daves Strange</p>
+    </footer>
+
     <script>
         // ==================== INITIALISATION ====================
         let currentAdmin = null;
@@ -463,15 +554,12 @@
 
         // ==================== FONCTIONS AFFICHAGE ====================
         function showPage(pageName) {
-            // Cacher toutes les pages
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
             
-            // Afficher la page demandée
             document.getElementById(pageName + 'Page').classList.add('active');
             
-            // Mettre à jour la navigation
             const navButtons = document.getElementById('navButtons');
             const userInfo = document.getElementById('userInfo');
             
@@ -519,7 +607,6 @@
             
             renderAdminTable(candidates);
             
-            // Recherche
             document.getElementById('searchInput').addEventListener('input', (e) => {
                 const searchTerm = e.target.value.toLowerCase();
                 const filtered = candidates.filter(c => 
@@ -553,7 +640,7 @@
                             <button class="btn-sm btn-success" onclick="updateCandidateStatus(${c.id}, 'accepted')">✅ Valider</button>
                         `}
                     </td>
-                 </tr>
+                </tr>
             `).join('');
         }
         
@@ -646,7 +733,6 @@
         }
         
         // ==================== EVENT LISTENERS ====================
-        // Admin login
         document.getElementById('adminLoginForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const email = document.getElementById('adminEmail').value;
@@ -662,7 +748,6 @@
             }
         });
         
-        // Candidate registration
         document.getElementById('candidateRegisterForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const msg = document.getElementById('registerMsg');
@@ -693,7 +778,6 @@
             }
         });
         
-        // Candidate login
         document.getElementById('candidateLoginForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const email = document.getElementById('candEmail').value;
@@ -712,7 +796,6 @@
         // ==================== DEMARRAGE ====================
         initData();
         
-        // Fonctions globales
         window.showPage = showPage;
         window.logout = logout;
         window.updateCandidateStatus = updateCandidateStatus;
